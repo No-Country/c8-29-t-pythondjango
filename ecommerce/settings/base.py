@@ -37,7 +37,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-
+    'applications.job_offers'
 ]
 
 THIRD_PARTY_APPS = []
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
