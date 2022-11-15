@@ -5,13 +5,13 @@ import json
 with open("secret.json") as f:
     secret = json.loads(f.read())
 
+
 def get_secret(secret_name, secrets=secret):
     try:
         return secrets[secret_name]
-    except:
+    except KeyError:
         msg = "la variable %s no existe" % secret_name
         raise ImproperlyConfigured(msg)
-
 
 
 SECRET_KEY = get_secret('SECRET_KEY')
@@ -23,7 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bm!g_rl8$^3xt7@9x=qbw-&$d(*=v7-mvzpm!42y!@^0+0@a*f'
+SECRET_KEY = (
+    'django-insecure-bm!g_rl8$^3xt7@9x=qbw-&$d(*=v7-mvzpm!42y!@^0+0@a*f'
+)
 
 # Application definition
 

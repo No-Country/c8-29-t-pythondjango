@@ -16,8 +16,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        cd be
         python -m pip install --upgrade pip
-        cd be; pip install -r requirements.txt
-    - name: Analysing the code with pylint
+        pip install -r requirements.txt;
+    - name: Analysing the code with flake8
       run: |
-        flake8
+        flake8 --max-line-length 99
