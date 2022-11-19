@@ -1,6 +1,7 @@
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 import json
+import os
 
 with open("secret.json") as f:
     secret = json.loads(f.read())
@@ -37,10 +38,17 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    'applications.job_offers'
+    'applications.users',
+    'applications.job_offers',
+    'applications.favorites',
+
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google']
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -108,3 +116,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'

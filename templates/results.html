@@ -670,13 +670,10 @@ w.cj_ads = {ap: '/json/apga'};
 
 
   <form
-    action="/jobad/mx01ee82cbf5978daaf991b927ebf6eefb/save"
-    method="post"
-    autocomplete="off"
-    accept-charset="utf-8"
-    class="save-job submit-xhr"
-    id="save-job-mx01ee82cbf5978daaf991b927ebf6eefb"
-  >
+          action="{% url 'favoritos_app:add-favoritos' empleado.id %}" method="POST">{% csrf_token %}
+                    <button type="submit" class="button alert">Agregar a Favoritos</button>
+
+
     <input name="csrf_token" type="hidden" value="32e288075262f23fd045e9f8def53bdd1a2c3df6">
     <input type="hidden" name="xht" value="#save-job-mx01ee82cbf5978daaf991b927ebf6eefb">
     <input type="hidden" name="mode" value="1">
@@ -689,6 +686,7 @@ w.cj_ads = {ap: '/json/apga'};
       data-cjuturl="/cjut"
 
     >
+
       <svg class="icon"><use xlink:href="#icon-bookmark"/></svg>
       <span>Guardar</span>
     </button>

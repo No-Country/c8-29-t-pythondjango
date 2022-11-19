@@ -26,7 +26,7 @@ class EmployeesByKword(ListView):
         if sort_qery == "date":
             lista = Job.objects.filter(
                 Q(title__icontains=palabra_clave) | Q(description__icontains=palabra_clave)
-            ).order_by("-date_publish")
+            ).order_by("date_publish")
             return lista
         if salary_qery == "salary":
             lista = Job.objects.filter(

@@ -40,6 +40,10 @@
     <title>{{ detail.title}}</title>
     <meta property="og:title" content="{{ detail.title}} {{ detail.salary }}">
 
+    <form class="blog-action" action="{% url 'favoritos_app:add-favoritos' detail.id %}" method="POST">{% csrf_token %}
+                    <button type="submit" class="button alert">Agregar a Favoritos</button>
+                  </form>
+
 
     <meta name="description" content="Ver la descripción de la oferta y postularse a este empleo de {{ detail.title}} en {{ detail.location}}">
     <meta property="og:description" content="Ver la descripción de la oferta y postularse a este empleo de {{ detail.title}} en {{ detail.location}}. con {{ detail.empresa }} {{ detail.salary }}">
