@@ -41,6 +41,7 @@ LOCAL_APPS = [
     'applications.users',
     'applications.job_offers',
     'applications.favorites',
+    'applications.alerts',
 
 ]
 
