@@ -1,2 +1,6 @@
 venv/
-*.json
+*.json/
+*.pyc
+*.pyo
+__pycache__/
+ *.pyc
