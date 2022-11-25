@@ -4,7 +4,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.contrib.auth import backends
+from applications.alerts.views import send_user_mail
 
 from django.views.generic import (
     View,
@@ -41,6 +41,7 @@ class UserRegisterView(FormView):
             date_birth=form.cleaned_data['date_birth'],
         )
         # enviar el codigo al email del user
+        send_user_mail()
         return super(UserRegisterView, self).form_valid(form)
 
 
