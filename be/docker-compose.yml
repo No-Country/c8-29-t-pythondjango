@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  gong-database:
+    image: postgres:13-bullseye
+    container_name: gong-postgres-db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: $DATABASE_NAME
+      POSTGRES_USER: $DATABASE_USER
+      POSTGRES_PASSWORD: $DATABASE_PASSWORD
+      DEBUG: True
+    ports:
+      - 5492:5432
+    volumes:
+      - pg-gong-db-data:/var/lib/postgresql/data/
+      - ./scripts/database-init.sql:/docker-entrypoint-initdb.d/create_database.sql
+    healthcheck:
+      test: sh -c "psql -d $DATABASE_NAME -U $DATABASE_USER"
+      interval: 1s
+      timeout: 5s
+      retries: 5
+
+  gong-webapp:
+    image: gong-webapp:latest
+    container_name: gong-webapp-cont
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      gong-database:
+        condition: service_healthy
+    command: >
+          sh -c "
+          python3 manage.py migrate &&
+          python3 manage.py runserver 0.0.0.0:8000 --settings=ecommerce.settings"
+    volumes:
+      - "./:/app"
+    env_file:
+      - .env
+    ports:
+      - 8540:8000
+
+volumes:
+  pg-gong-db-data:
