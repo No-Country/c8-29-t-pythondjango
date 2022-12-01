@@ -2,24 +2,19 @@
 
 Gong is a Django project scrapper resposable for sharing a list of vacancies for junior profiles.
 
-<br />
 
 ## Built With
 
 - [Python](https://www.python.org/) Language
 
-<br />
 
 ## Installation
-
 
 1. Clone the repo
 
    ```sh
     git clone https://github.com/No-Country/c8-29-t-pythondjango.git
    ```
-
-<br />
 
 2. Set environment variables: be/.env
 
@@ -45,15 +40,11 @@ Gong is a Django project scrapper resposable for sharing a list of vacancies for
    - `<DATABASE_HOST>` -> Set this value according to database host. EX: "localhost"
    - `<DATABASE_PORT>` -> Set this value according to database port. EX: 5432
 
-<br />
-
 3. We suggest using docker compose for installing and running the project.
 
    ```bash
     docker compose up
    ```
-
-<br />
 
 4. Go to:
    ```bash
@@ -61,14 +52,10 @@ Gong is a Django project scrapper resposable for sharing a list of vacancies for
    ```
 
 
-<br />
-
 ## Currently Supported Sites:
 
 - [Indeed](https://mx.indeed.com/?r=us)
 
-
-<br />
 
 ## Contributing
 
@@ -77,7 +64,6 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-<br />
 
 ## License
 
