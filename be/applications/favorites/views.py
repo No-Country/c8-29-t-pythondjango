@@ -17,7 +17,7 @@ from .models import Favorites
 
 
 class UserPageView(LoginRequiredMixin, ListView):
-    template_name = "favoritos/perfil.html"
+    template_name = "favoritos/perfil_new.html"
     context_object_name = 'entradas_user'
     login_url = reverse_lazy('users_app:user-login')
 
@@ -33,10 +33,13 @@ class AddFavoritosView(LoginRequiredMixin, View):
         usuario = self.request.user
         job = Job.objects.get(id=self.kwargs['pk'])
         # registramos favorito
-        Favorites.objects.create(
-            user=usuario,
-            job=job,
-        )
+        try:
+            Favorites.objects.create(
+                user=usuario,
+                job=job,
+            )
+        except:
+            pass
 
         return HttpResponseRedirect(
             reverse(

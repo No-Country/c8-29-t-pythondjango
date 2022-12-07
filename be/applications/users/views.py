@@ -26,7 +26,7 @@ from .models import User
 
 
 class UserRegisterView(FormView):
-    template_name = 'users/register.html'
+    template_name = 'users/register_new.html'
     form_class = UserRegisterForm
     success_url = reverse_lazy('users_app:user-login')
 
@@ -36,12 +36,12 @@ class UserRegisterView(FormView):
             form.cleaned_data['email'],
             form.cleaned_data['password1'],
             full_name=form.cleaned_data['full_name'],
-            ocupation=form.cleaned_data['ocupation'],
-            genero=form.cleaned_data['genero'],
-            date_birth=form.cleaned_data['date_birth'],
+            # ocupation=form.cleaned_data['ocupation'],
+            # genero=form.cleaned_data['genero'],
+            # date_birth=form.cleaned_data['date_birth'],
         )
         # enviar el codigo al email del user
-        send_user_mail()
+        send_user_mail(form.cleaned_data['email'], form.cleaned_data['full_name'])
         return super(UserRegisterView, self).form_valid(form)
 
 
@@ -65,7 +65,7 @@ class LoginUser(FormView):
 
 class LogoutView(View):
 
-    def get(self, request, *args, **kargs):
+    def get(self, request, *args, **kwargs):
         logout(request)
         return HttpResponseRedirect(
             reverse(

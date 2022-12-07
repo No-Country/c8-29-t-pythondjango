@@ -1,18 +1,30 @@
-{% extends "users/base_users.html" %}
+{% load  static %}
 {% load socialaccount %}
 {% providers_media_js %}
 <!-- head para PC -->
 
-{% load  static %}
 
 
 
-{% include "includes/header.html" %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{%  static 'assets/css/login.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%  static 'assets/css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'assets/css/price_rangs.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/slicknav.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/animate.min.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/magnific-popup.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/fontawesome-all.min.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/themify-icons.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/slick.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/nice-select.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/style.css'%}">
     <title>Login</title>
 </head>
 <body>
@@ -27,47 +39,49 @@
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="https://i.ibb.co/Z185qVT/Logo.png"
+                  <img src="https://i.ibb.co/Tq3JFH0/Logo.png"
                     style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                  <h4 class="mt-1 mb-5 pb-1">We are The Gong Team</h4>
                 </div>
 
-                <form>
+                <form method="POST">{% csrf_token %}
                   <p>Please login to your account</p>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example11" class="form-control"
-                      placeholder="Phone number or email address" />
-                    <label class="form-label" for="form2Example11">Username</label>
+
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example22" class="form-control" />
-                    <label class="form-label" for="form2Example22">Password</label>
+
+                      {{ form }}
                   </div>
-                    <a href="{% provider_login_url "google" %}">Google</a>
+
+
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
+                    <button class="btn" type="submit">Log
                       in</button>
+                </form>
+                  <br>
+                  <br>
+                  <br>
+                      <a class="btn" href="{% provider_login_url "google" %}" style="background-color:grey">Google</a> <br>
                     <a class="text-muted" href="#!">Forgot password?</a>
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-danger">Create new</button>
+                   <a class="text-muted" href="{% url 'users_app:user-register' %}"> <button type="button" class="btn btn-outline-danger">Create new</button></a>
                   </div>
 
                 </form>
 
               </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2" style="background-color: brown;">
+            <div class="col-lg-6 d-flex align-items-center danger"style="background-color:#E9E8E8">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h4 class="mb-4">Inicia sesión y busca entre miles de ofertas.</h4>
+                <p class="small mb-0">Ingresa tus datos para iniciar sesión.</p>
               </div>
             </div>
           </div>

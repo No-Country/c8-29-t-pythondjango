@@ -10,7 +10,8 @@ class UserRegisterForm(forms.ModelForm):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Contraseña'
+                'placeholder': 'Contraseña',
+                'class': 'form-control'
             }
         )
     )
@@ -19,7 +20,9 @@ class UserRegisterForm(forms.ModelForm):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'Repetir Contraseña'
+                'placeholder': 'Repetir Contraseña',
+                'class': 'form-control'
+
             }
         )
     )
@@ -31,31 +34,33 @@ class UserRegisterForm(forms.ModelForm):
         fields = (
             'email',
             'full_name',
-            'ocupation',
-            'genero',
-            'date_birth',
+            # 'ocupation',
+            # 'genero',
+            # 'date_birth',
         )
         widgets = {
             'email': forms.EmailInput(
                 attrs={
                     'placeholder': 'Correo Electronico ...',
+                    'class': 'form-control'
                 }
             ),
             'full_name': forms.TextInput(
                 attrs={
-                    'placeholder': 'nombres ...',
+                    'placeholder': 'Nombres ...',
+                    'class': 'form-control'
                 }
             ),
-            'ocupation': forms.TextInput(
-                attrs={
-                    'placeholder': 'Ocupacion ...',
-                }
-            ),
-            'date_birth': forms.DateInput(
-                attrs={
-                    'type': 'date',
-                },
-            ),
+            # 'ocupation': forms.TextInput(
+            #     attrs={
+            #         'placeholder': 'Ocupacion ...',
+            #     }
+            # ),
+            # 'date_birth': forms.DateInput(
+            #     attrs={
+            #         'type': 'date',
+            #     },
+            # ),
         }
 
     def clean_password2(self):
@@ -70,6 +75,7 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'placeholder': 'Correo Electronico',
+                'class': 'form-control'
             }
         )
     )
@@ -78,7 +84,8 @@ class LoginForm(forms.Form):
         required=True,
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'contraseña'
+                'placeholder': 'contraseña',
+                'class': 'form-control'
             }
         )
     )

@@ -33,18 +33,17 @@ class AddAlertView(LoginRequiredMixin,View):
         )
 
 
-def send_user_mail(user):
-    subject = 'Titulo del correo'
-    template = get_template('templates/mi_template_correo.html')
-
-    content = template.render({
-        'user': user,
-    })
-
-    message = EmailMultiAlternatives(subject, #Titulo
-                                    'Bienvenido',
-                                    settings.EMAIL_HOST_USER, #Remitente
-                                    [user.email]) #Destinatario
-
-    message.attach_alternative(content, 'text/html')
-    message.send()
+def send_user_mail(user,name):
+    import smtplib
+    email_address = 'aliria.gutierrez@yahoo.com'  # add email address here
+    Subject = 'Subject: Bievenido...\n\n'
+    content = f' Dear {name}, \n This is a test message.\n\n '
+    footer = '- Test'  # add test footer
+    passcode = 'paondxrldheavnlz'  # add passcode here
+    conn = smtplib.SMTP_SSL('smtp.mail.yahoo.com', 465)
+    conn.ehlo()
+    conn.login(email_address, passcode)
+    conn.sendmail(email_address,
+                  user,
+                  Subject + content + footer)
+    conn.quit()

@@ -6,7 +6,7 @@ app_name = "favoritos_app"
 
 urlpatterns = [
     path(
-        'perfil',
+        'accounts/profile/',
         views.UserPageView.as_view(),
         name='perfil',
     ),

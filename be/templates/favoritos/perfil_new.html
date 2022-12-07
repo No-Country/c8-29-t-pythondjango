@@ -1,0 +1,161 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>Job board HTML-5 Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{%  static 'assets/css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'assets/css/price_rangs.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/slicknav.css' %}">
+            <link rel="stylesheet" href="{%  static 'assets/css/animate.min.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/magnific-popup.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/fontawesome-all.min.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/themify-icons.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/slick.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/nice-select.css'%}">
+            <link rel="stylesheet" href="{%  static 'assets/css/style.css'%}">
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-transparrent">
+           <div class="headder-top header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-2">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="/"><img src="{%  static 'assets/img/logo/logo.png'%}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-9">
+                            <div class="menu-wrapper">
+                                <!-- Main-menu -->
+                                <div class="main-menu">
+                                    <nav class="d-none d-lg-block">
+                                        <ul id="navigation">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="/results">Encuentra trabajo </a></li>
+                                            <li><a href="/about">About</a></li>
+                                            <li><a href="/blog">Page</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/blog">Blog</a></li>
+                                                    <li><a href="">Blog Details</a></li>
+                                                    <li><a href="">Elements</a></li>
+                                                    <li><a href="">job Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="/contact">Contacto</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Header-btn -->
+                                {% if not user.is_anonymous %}
+                        <a href="{% url 'favoritos_app:perfil' %}" class="btn">Perfil</a>
+                    {% else %}
+                                    <div class="header-btn d-none f-right d-lg-block">
+                                    <a href="{% url 'users_app:user-register' %}" class="btn head-btn1">Registrarse</a>
+                                    <a href="{% url 'users_app:user-login' %}" class="btn head-btn2">Acceder</a>
+                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+   <div class="grid-container">
+    <div class="grid-x grid-margin-x align-center" style="margin-top: 1em;">
+        <!-- bloque de datos de usuario -->
+        <div class="cell small-12 large-4">
+            <div class="callout">
+                <h5>{{ user.full_name }}</h5>
+                <p>{{ user.email }} - {{user.ocupation}} - {{ user.date_birth }}</p>
+                <a class="btn" href="#">Editar Datos</a>
+                <p>
+                    <a class="btn-danger" href="{% url 'users_app:user-logout' %}">
+                        Salir
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!-- FIN bloque de datos de usuario -->
+
+
+        <!-- bloque de articulos favoritos de usuario -->
+        <div class="cell large-8 grid-x grid-margin-x align-center">
+            {% for entrada in entradas_user %}
+            <div class="cell small-12">
+                <div class="card-favoritos">
+                    <img class="card-favoritos-img" src="{{ entrada.entry.image.url }}">
+                    <div class="card-favoritos-body">
+                        <h3 class="card-favoritos-body-titulo">{{ entrada.job.title }}</h3>
+                        <p class="card-favoritos-body-text">{{ entrada.job.company }}</p>
+                        <form class="card-favoritos-body-actions" method="POST" action="{% url 'favoritos_app:delete-favoritos' entrada.id  %}">{% csrf_token %}
+                            <a class="btn" href="{% url 'job_app:detail' entrada.job.id %}">Ver</a>
+                            <button type="submit" class="btn">Eliminar</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- FIN bloque de articulos favoritos de usuario -->
+    </div>
+</div>
+
+<!-- JS here -->
+
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static './assets/js/vendor/modernizr-3.5.0.min.js'%}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static './assets/js/vendor/jquery-1.12.4.min.js'%}"></script>
+        <script src="{% static './assets/js/popper.min.js'%}"></script>
+        <script src="{% static './assets/js/bootstrap.min.js'%}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static './assets/js/jquery.slicknav.min.js'%}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Range -->
+        <script src="{% static './assets/js/owl.carousel.min.js'%}"></script>
+        <script src="{% static './assets/js/slick.min.js'%}"></script>
+        <script src="{% static './assets/js/price_rangs.js'%}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static './assets/js/wow.min.js'%}"></script>
+		<script src="{% static './assets/js/animated.headline.js'%}"></script>
+        <script src="{% static './assets/js/jquery.magnific-popup.js'%}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static './assets/js/jquery.scrollUp.min.js'%}"></script>
+        <script src="{% static './assets/js/jquery.nice-select.min.js' %}"></script>
+		<script src="'./assets/js/jquery.sticky.js'"></script>
+
+        <!-- contact js -->
+        <script src="{% static './assets/js/contact.js'%}"></script>
+        <script src="{% static './assets/js/jquery.form.js'%}"></script>
+        <script src="{% static './assets/js/jquery.validate.min.js'%}"></script>
+        <script src="{% static './assets/js/mail-script.js'%}"></script>
+        <script src="{% static './assets/js/jquery.ajaxchimp.min.js'%}"></script>
+
+		<!-- Jquery Plugins, main Jquery -->
+        <script src="{% static './assets/js/plugins.js'%}"></script>
+        <script src="{% static './assets/js/main.js'%}"></script>
