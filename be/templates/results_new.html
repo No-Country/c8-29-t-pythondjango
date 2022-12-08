@@ -143,7 +143,7 @@
                                    <input
         id="kword"
         name="kword"
-        value=""
+        value="{{ request.GET.kword }}"
 
         class="input-form search-box"
         type="search"
@@ -165,7 +165,7 @@
                                 <input
         id="location"
         name="location"
-        value=""
+        value="{{ request.GET.location }}"
 
         class="input-form search-box"
         type="search"
@@ -186,9 +186,11 @@
                                 <h6>Job Type</h6>
                                 <div class="select-job-items2">
                                     <select name="type" id="type">
+                                        <option value="{{ request.GET.type }}">{{ request.GET.type }}</option>
                                         <option value="Todos">Todos</option>
                                         <option value="Remoto">Remoto</option>
                                         <option value="Presencial">Presencial</option>
+
                                     </select>
                                 </div>
                                 <!--  Select job items End-->
@@ -200,6 +202,7 @@
                                     </div>
                                     <div class="select-job-items2">
                                     <select name="sort" id="sort">
+                                        <option value="{{ request.GET.sort }}">{{ request.GET.sort }}</option>
                                         <option value="relevance">Relevancia</option>
                                         <option value="date">Fecha</option>
                                         <option value="salary">Salario</option>
