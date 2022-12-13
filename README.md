@@ -15,7 +15,7 @@ Gong is a Django project scrapper resposable for sharing a list of vacancies for
 
 ## Video Promocional
 
-[![IMAGE ALT TEXT](https://i.ibb.co/Z185qVT/Logo.png)](https://www.youtube.com/watch?v=eHo5N90C0MI&ab_channel=EmilioCarrozzino "StayUp")
+[![IMAGE ALT TEXT](https://i.ibb.co/Z185qVT/Logo.png)](https://www.youtube.com/watch?v=eHo5N90C0MI&ab_channel=EmilioCarrozzino) "StayUp")
 
 ## Tecnologias
 
@@ -25,7 +25,7 @@ Gong is a Django project scrapper resposable for sharing a list of vacancies for
 
 ### **BackEnd**
 
--   **Django**&nbsp; <a href="https://nodejs.org" rel="nofollow"> <img src="https://raw.https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" alt="django" width="40" height="40" style="max-width: 100%;"> </a>
+-   **Django**&nbsp; <a href="https://nodejs.org" rel="nofollow"> <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/django/django-plain.svg" alt="django" width="40" height="40" style="max-width: 100%;"> </a>
 
 - [Python](https://www.python.org/) Language
 
