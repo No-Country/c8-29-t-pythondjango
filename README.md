@@ -1,11 +1,46 @@
-# GONG
+![enter image description here](https://i.ibb.co/Z185qVT/Logo.png)
+
+# Índice
+
+1. [Descripción del proyecto](#descripcion)
+2. [Tecnologías aplicadas](#tecnologias)
+3. [Integrantes](#roles)
+4. [Deploy](#deploy)
+
+<a name="descripcion"></a>
+
+# Descripción
 
 Gong is a Django project scrapper resposable for sharing a list of vacancies for junior profiles.
 
+## Video Promocional
 
-## Built With
+[![IMAGE ALT TEXT](https://i.ibb.co/Z185qVT/Logo.png)](https://www.youtube.com/watch?v=eHo5N90C0MI&ab_channel=EmilioCarrozzino "StayUp")
+
+## Tecnologias
+
+### **FrontEnd**
+
+-   **JavaScript** &nbsp; <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" rel="nofollow"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript"  width="30" height="30" style="max-width: 100%;"> </a>
+
+### **BackEnd**
+
+-   **Django**&nbsp; <a href="https://nodejs.org" rel="nofollow"> <img src="https://raw.https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" alt="django" width="40" height="40" style="max-width: 100%;"> </a>
 
 - [Python](https://www.python.org/) Language
+
+### **UI/UX**
+
+-   **Figma**&nbsp; <a href="https://www.figma.com/" rel="nofollow"> <img src="https://camo.githubusercontent.com/ed93c2b000a76ceaad1503e7eb9356591b885227e82a36a005b9d3498b303ba5/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6669676d612f6669676d612d69636f6e2e737667" alt="figma" width="25" height="25" data-canonical-src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" style="max-width: 100%;"> </a>
+
+| Developer               | Rol      | LinkedIn                                             | GitHub - Behance                    |
+| ----------------------- | -------- | ---------------------------------------------------- | ----------------------------------- |
+| Emilio Carrozzino            | UX / UI  | https://www.linkedin.com/in/           | https://www.https://github.com/ |
+| Lucin Perez          | Backend  | https://www.linkedin.com/in/lucin-perez-725921232/             | https://github.com/lucin21      |
+| Carlos Guerrero       | Devops  |                                                      | https://github.com/Carlgro |
+| Melany Goncalves         | UX / UI  | https://www.linkedin.com/in/         | https://github.com/github.com/MelyGoncalves/        |
+
+
 
 
 ## Installation
