@@ -35,7 +35,7 @@ Gong is a Django project scrapper resposable for sharing a list of vacancies for
 
 | Developer               | Rol      | LinkedIn                                             | GitHub - Behance                    |
 | ----------------------- | -------- | ---------------------------------------------------- | ----------------------------------- |
-| Emilio Carrozzino            | UX / UI  | https://www.linkedin.com/in/           | https://www.https://github.com/ |
+| Emilio Carrozzino            | UX / UI  | [https://www.linkedin.com/in/](https://www.linkedin.com/in/emilio-carrozzino-221346183/)           | |
 | Lucin Perez          | Backend  | https://www.linkedin.com/in/lucin-perez-725921232/             | https://github.com/lucin21      |
 | Carlos Guerrero       | Devops  |                                                      | https://github.com/Carlgro |
 | Melany Goncalves         | UX / UI  | https://www.linkedin.com/in/         | https://github.com/github.com/MelyGoncalves/        |
